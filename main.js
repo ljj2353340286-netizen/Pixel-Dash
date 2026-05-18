@@ -31,8 +31,8 @@ let spawnTimer;
 
 function preload() {
     this.load.spritesheet('player_run', 'assets/player_sprite.png', { 
-        frameWidth: 32, 
-        frameHeight: 48 
+        frameWidth: 50, 
+        frameHeight: 65 
     });
 
     let groundCanvas = document.createElement('canvas');
@@ -44,11 +44,11 @@ function preload() {
     this.textures.addCanvas('ground_sprite', groundCanvas);
 
     let obstacleCanvas = document.createElement('canvas');
-    obstacleCanvas.width = 300;
+    obstacleCanvas.width = 40;
     obstacleCanvas.height = 40;
     let obstacleCtx = obstacleCanvas.getContext('2d');
     obstacleCtx.fillStyle = '#e74c3c';
-    obstacleCtx.fillRect(0, 0, 300, 40);
+    obstacleCtx.fillRect(0, 0, 40, 40);
     this.textures.addCanvas('obstacle_sprite', obstacleCanvas);
 }
 
