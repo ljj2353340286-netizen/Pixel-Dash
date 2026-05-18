@@ -30,13 +30,10 @@ let isGameOver = false;
 let spawnTimer;
 
 function preload() {
-    let canvas = document.createElement('canvas');
-    canvas.width = 32;
-    canvas.height = 48;
-    let ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, 32, 48);
-    this.textures.addCanvas('player_sprite', canvas);
+    this.load.spritesheet('player_run', 'assets/player_sprite.png', { 
+        frameWidth: 32, 
+        frameHeight: 48 
+    });
 
     let groundCanvas = document.createElement('canvas');
     groundCanvas.width = 800;
@@ -47,11 +44,11 @@ function preload() {
     this.textures.addCanvas('ground_sprite', groundCanvas);
 
     let obstacleCanvas = document.createElement('canvas');
-    obstacleCanvas.width = 200;
+    obstacleCanvas.width = 300;
     obstacleCanvas.height = 40;
     let obstacleCtx = obstacleCanvas.getContext('2d');
     obstacleCtx.fillStyle = '#e74c3c';
-    obstacleCtx.fillRect(0, 0, 200, 40);
+    obstacleCtx.fillRect(0, 0, 300, 40);
     this.textures.addCanvas('obstacle_sprite', obstacleCanvas);
 }
 
@@ -59,13 +56,22 @@ function create() {
     isGameOver = false;
     score = 0;
 
-    bg = this.add.tileSprite(400, 300, 800, 600, 'player_sprite').setAlpha(0.1);
+    bg = this.add.tileSprite(400, 300, 800, 600, 'ground_sprite').setAlpha(0.1);
 
     let platforms = this.physics.add.staticGroup();
     platforms.create(400, 575, 'ground_sprite');
 
-    player = this.physics.add.sprite(100, 450, 'player_sprite');
+    player = this.physics.add.sprite(100, 450, 'player_run');
     player.setCollideWorldBounds(true);
+
+    this.anims.create({
+        key: 'run',
+        frames: this.anims.generateFrameNumbers('player_run', { start: 0, end: 3 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+    player.anims.play('run', true);
 
     this.physics.add.collider(player, platforms);
 
@@ -114,6 +120,8 @@ function spawnObstacle() {
 function hitObstacle(player, obstacle) {
     this.physics.pause();
     spawnTimer.destroy();
+    
+    player.anims.stop();
     player.setTint(0xff0000);
     isGameOver = true;
 
