@@ -7,7 +7,7 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 600 },
+            gravity: { y: 1000 },
             debug: true
         }
     },
@@ -20,19 +20,46 @@ const config = {
 
 const game = new Phaser.Game(config);
 
+let player;
+let cursors;
+let bg;
+
 function preload() {
+    let canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 48;
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, 32, 48);
+    this.textures.addCanvas('player_sprite', canvas);
+
+    let groundCanvas = document.createElement('canvas');
+    groundCanvas.width = 800;
+    groundCanvas.height = 50;
+    let groundCtx = groundCanvas.getContext('2d');
+    groundCtx.fillStyle = '#2ecc71';
+    groundCtx.fillRect(0, 0, 800, 50);
+    this.textures.addCanvas('ground_sprite', groundCanvas);
 }
 
 function create() {
-    this.add.text(400, 300, 'Pixel-Dash \nSprint I Running!', {
-        fontSize: '32px',
-        fill: '#ffffff',
-        fontStyle: 'bold',
-        align: 'center'
-    }).setOrigin(0.5);
+    bg = this.add.tileSprite(400, 300, 800, 600, 'player_sprite').setAlpha(0.1);
 
-    this.cursors = this.input.keyboard.createCursorKeys();
+    let platforms = this.physics.add.staticGroup();
+    platforms.create(400, 575, 'ground_sprite');
+
+    player = this.physics.add.sprite(100, 450, 'player_sprite');
+    player.setCollideWorldBounds(true);
+
+    this.physics.add.collider(player, platforms);
+
+    cursors = this.input.keyboard.createCursorKeys();
 }
 
 function update() {
+    bg.tilePositionX += 4;
+
+    if ((cursors.space.isDown || cursors.up.isDown) && player.body.touching.down) {
+        player.setVelocityY(-500); 
+    }
 }
