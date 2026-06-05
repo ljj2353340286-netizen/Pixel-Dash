@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Dash | Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-bar">
+            <a class="brand" href="main.html">Pixel Dash</a>
+            <div class="nav-links">
+                <a href="main.html">Main</a>
+                <a href="team.html">Team</a>
+                <a href="game.html">Game</a>
+                <a class="active" href="form.html">Form</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell">
+        <section class="form-panel">
+            <h1 class="page-title">Project Feedback Form</h1>
+            <p class="lead">This form demonstrates basic HTML form structure and JavaScript submit handling for the course project.</p>
+
+            <form id="feedback-form" class="form-grid">
+                <label>
+                    Name
+                    <input type="text" name="name" required>
+                </label>
+                <label>
+                    Role
+                    <select name="role" required>
+                        <option value="">Select one</option>
+                        <option>Student</option>
+                        <option>Professor</option>
+                        <option>Tester</option>
+                    </select>
+                </label>
+                <label>
+                    Feedback
+                    <textarea name="feedback" required></textarea>
+                </label>
+                <button type="submit">Submit Feedback</button>
+                <p id="form-result" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">Software Engineering Project - Pixel Dash</footer>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Dash | Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-bar">
+            <a class="brand" href="main.html">Pixel Dash</a>
+            <div class="nav-links">
+                <a href="main.html">Main</a>
+                <a href="team.html">Team</a>
+                <a class="active" href="game.html">Game</a>
+                <a href="form.html">Form</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-shell">
+        <section class="game-panel">
+            <div class="game-header">
+                <div>
+                    <h1 class="page-title">Runner Game</h1>
+                    <p class="lead">Press Space or Up to jump over the spikes.</p>
+                </div>
+                <div class="score-board">
+                    <div class="score-item">Score<strong id="score-value">0</strong></div>
+                    <div class="score-item">Best<strong id="best-score-value">0</strong></div>
+                </div>
+            </div>
+
+            <div class="canvas-wrap">
+                <canvas id="runner-game" width="800" height="420" aria-label="Pixel Dash runner game"></canvas>
+            </div>
+
+            <div class="game-controls">
+                <span id="game-message">Press Space or Up to jump</span>
+                <button id="restart-button" type="button" disabled>Restart</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">Software Engineering Project - Pixel Dash</footer>
+    <script src="main.js"></script>
+</body>
+</html>

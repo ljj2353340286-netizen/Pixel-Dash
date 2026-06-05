@@ -1,15 +1,23 @@
-# ADR 001: Technical Stack Transition to Phaser.js
+# ADR 001: Use Plain HTML, CSS, and JavaScript
 
 ## Status
+
 Accepted
 
 ## Context
-Initially, the project proposal suggested using Unity and C# for development. However, considering the lightweight nature of web-based deployment, seamless integration with GitHub Pages, and development efficiency within the team, we re-evaluated the technology stack.
+
+The course project must use only the technologies taught in class: HTML, CSS, JavaScript, and Git.
+External libraries and frameworks such as Phaser, React, Bootstrap, and jQuery are not allowed.
 
 ## Decision
-We decided to switch the game engine from Unity to Phaser.js and use JavaScript for the core game logic.
+
+Pixel Dash is implemented as a plain web project.
+The website pages use HTML and CSS.
+The game uses the HTML Canvas API and JavaScript for movement, jumping, obstacle generation, scoring, collision detection, and restart behavior.
 
 ## Consequences
-* Positive: Faster deployment via GitHub Pages for grading and immediate feedback.
-* Positive: Lower learning curve for the team compared to C# and Unity web builds.
-* Negative: Limited 3D capabilities, but sufficient since our project is a 2D endless runner game.
+
+* Positive: The project follows the professor's technology constraints.
+* Positive: The source code is simple and easy to explain during the final presentation.
+* Positive: The team can demonstrate core JavaScript logic without relying on a framework.
+* Negative: Advanced game engine features are not available, but they are not required for this simple runner game.

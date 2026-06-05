@@ -1,16 +1,24 @@
-# ADR 001: 물리 엔진 선택 (Physics Engine Selection)
+# ADR 001: Simple Canvas-Based Game Logic
 
-## 상태 (Status)
-결정됨 (Accepted)
+## Status
 
-## 배경 (Context)
-Pixel-Dash 게임의 핵심 메커니즘인 점프, 중력 적용 및 장애물 충돌 감지를 구현하기 위해 적절한 물리 엔진이 필요합니다.
+Accepted
 
-## 결정 (Decision)
-우리는 **Phaser.js Arcade Physics**를 사용하기로 결정했습니다.
+## Context
 
-## 이유 (Consequences)
-1. **경량화**: Matter.js와 같은 복잡한 엔진에 비해 계산 리소스 소모가 적어 웹 브라우저에서 매우 부드럽게 작동합니다.
-2. **테스트 용이성**: 속도(Velocity)와 가속도(Acceleration) 모델이 직관적이어서, Harness Engineering에서 요구하는 단위 테스트(Unit Testing)를 수행하기에 최적입니다.
-3. **성능**: 단순한 2D 픽셀 아트 게임에서 다수의 객체를 처리할 때 높은 프레임워크 성능을 보장합니다.
-4. **학습 곡선**: API가 단순하여 빠르게 프로토타입을 제작하고 검증할 수 있습니다.
+Pixel Dash must remain within the course technology scope: HTML, CSS, JavaScript, and Git.
+External game engines are not allowed, so the project needs a simple approach for player movement,
+jumping, gravity, obstacles, and collision detection.
+
+## Decision
+
+We will implement the runner game with the HTML Canvas API and plain JavaScript.
+Gravity and jumping are handled with simple variables such as player position and vertical velocity.
+Obstacles are stored in an array and moved from right to left each frame.
+
+## Consequences
+
+1. The game follows the project constraints.
+2. The logic is easy to explain in the final presentation.
+3. The game remains lightweight and browser-friendly.
+4. The team must manually manage movement and collision logic, but this is suitable for a simple 2D runner.

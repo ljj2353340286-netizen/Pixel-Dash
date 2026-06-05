@@ -1,16 +1,23 @@
-# ADR 003: 충돌 감지 방식 결정
+# ADR 003: Collision Detection
 
-## 상태 (Status)
-제안됨 (Proposed)
+## Status
 
-## 배경 (Context)
-플레이어 캐릭터가 장애물(예: 선인장, 구덩이)에 닿았을 때 이를 정확하고 빠르게 감지하여 '게임 오버' 상태를 판정해야 합니다.
+Accepted
 
-## 결정 (Decision)
-Phaser.js의 **Arcade Physics 엔진에서 제공하는 `overlap` 함수**를 사용하기로 결정했습니다:
-1. **간결함**: 복잡한 물리 계산 없이 두 물체의 히트박스(Hitbox)가 겹치는지만 확인합니다.
-2. **성능**: 계산량이 적어 모바일이나 저사양 브라우저에서도 부드럽게 작동합니다.
+## Context
 
-## 결과 (Consequences)
-- **장점**: 개발 속도가 빠르고 게임 리소스를 적게 소모합니다.
-- **단점**: 매우 정교한 물리적 반동(충돌 후 튕겨 나가는 효과 등)을 구현하기에는 한계가 있습니다.
+The runner game needs to detect when the player touches an obstacle.
+The project cannot use an external physics engine, so collision detection must be implemented with plain JavaScript.
+
+## Decision
+
+We will use axis-aligned bounding box collision detection.
+The player and each obstacle are rectangles.
+The game compares their `x`, `y`, `width`, and `height` values every frame.
+
+## Consequences
+
+* Positive: The method is simple and easy to test.
+* Positive: It matches the rectangle-based visual design.
+* Positive: It can be explained clearly during the final presentation.
+* Negative: It is less precise than complex pixel-based collision, but that is acceptable for this game.

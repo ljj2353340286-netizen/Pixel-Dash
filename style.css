@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f2933;
+    background: #f4f7fb;
+}
+
+a {
+    color: inherit;
+}
+
+.site-header {
+    background: #18324a;
+    color: #ffffff;
+    border-bottom: 4px solid #ef476f;
+}
+
+.nav-bar {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav-links a {
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    background: #ffffff;
+    color: #18324a;
+}
+
+.page-shell {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 36px 24px 56px;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 32px;
+    align-items: center;
+}
+
+.hero h1,
+.page-title {
+    margin: 0 0 14px;
+    font-size: 42px;
+    line-height: 1.1;
+}
+
+.hero p,
+.lead {
+    margin: 0 0 22px;
+    color: #52616f;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button,
+button {
+    border: 0;
+    border-radius: 6px;
+    padding: 11px 16px;
+    background: #ef476f;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button.secondary {
+    background: #24445f;
+}
+
+button:disabled {
+    background: #9aa6b2;
+    cursor: not-allowed;
+}
+
+.info-panel,
+.team-card,
+.form-panel,
+.game-panel {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    border-radius: 8px;
+    padding: 22px;
+    box-shadow: 0 8px 22px rgba(31, 41, 51, 0.08);
+}
+
+.info-grid,
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.info-panel h2,
+.team-card h2,
+.form-panel h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.info-panel ul,
+.team-card ul {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.score-board {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.score-item {
+    min-width: 112px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #18324a;
+    color: #ffffff;
+    text-align: center;
+}
+
+.score-item strong {
+    display: block;
+    font-size: 24px;
+}
+
+.canvas-wrap {
+    width: 100%;
+    overflow: hidden;
+    border: 4px solid #18324a;
+    border-radius: 8px;
+    background: #8fd3ff;
+}
+
+#runner-game {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.game-controls {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+#game-message,
+#form-result {
+    font-weight: 700;
+    color: #24445f;
+}
+
+.form-grid {
+    display: grid;
+    gap: 16px;
+}
+
+label {
+    display: grid;
+    gap: 7px;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #bcccdc;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font: inherit;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.site-footer {
+    padding: 24px;
+    text-align: center;
+    color: #52616f;
+}
+
+@media (max-width: 760px) {
+    .nav-bar,
+    .hero,
+    .game-header {
+        display: block;
+    }
+
+    .nav-links {
+        margin-top: 14px;
+    }
+
+    .info-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1,
+    .page-title {
+        font-size: 34px;
+    }
+}

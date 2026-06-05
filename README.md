@@ -1,33 +1,64 @@
-# Pixel-Dash
+# Pixel Dash
 
 ## Project Overview
 
-Pixel Dash is a 2D endless runner game developed for the Software Engineering course.
+Pixel Dash is a simple web-based endless runner game developed for a Software Engineering course.
+The project focuses on applying course concepts such as requirements, Agile sprint planning,
+documentation, testing, and Git-based collaboration.
 
-The player must avoid obstacles and survive as long as possible to achieve a high score.
+## Pages
+
+* `main.html` - home page and project overview
+* `team.html` - team members and responsibilities
+* `game.html` - playable runner game
+* `form.html` - project feedback form
+* `index.html` - redirects to `main.html`
 
 ## Functions
 
-* Jump
-* Obstacle Generation
-* Collision Detection
-* Score System
-* Restart Function
+* Player jump with Space or Up key
+* Obstacles appear from the right side
+* Collision detection triggers Game Over
+* Score and best score display
+* Restart after Game Over
+* Feedback form submit handling
 
-## Technology
+## Technology Stack
 
 * HTML
 * CSS
 * JavaScript
-* GitHub
+* Git and GitHub
+
+No external libraries or frameworks are used. The game is implemented with the HTML Canvas API and plain JavaScript.
 
 ## Project Structure
 
-* docs
-* test
-* assets
-* src
-* todo
+* `assets/` - optional images and resources
+* `docs/` - project documentation
+* `docs/adr/` - architecture decision records
+* `docs/user-story/` - user stories
+* `docs/ui/` - UI design documents
+* `docs/sprint/` - sprint plans and reports
+* `skills/` - reusable development notes
+* `test/` - test case documents
+* `todo/` - sprint task lists
+
+## How to Run
+
+Open `main.html` in a web browser, then go to the Game page.
+
+For a local server, run one of the following commands from the project folder:
+
+```bash
+python -m http.server 8000
+```
+
+Then open:
+
+```text
+http://127.0.0.1:8000/main.html
+```
 
 ## Testing
 
@@ -35,23 +66,21 @@ The player must avoid obstacles and survive as long as possible to achieve a hig
 * Jump Test
 * Score Test
 * Restart Test
+* Page Navigation Test
+* Form Submit Test
 
-## Sprint
+## Sprint Summary
 
-Sprint 1 - Player Movement
-
-Sprint 2 - Obstacle Generation
-
-Sprint 3 - Collision Detection
-
-Sprint 4 - Score System
-
-Sprint 5 - UI and Restart
+* Sprint 1 - Player movement
+* Sprint 2 - Obstacle generation
+* Sprint 3 - Collision detection
+* Sprint 4 - Score system
+* Sprint 5 - UI, pages, and restart
 
 ## Team Members
 
-| Name | Student ID | Responsibility               |
-| ---- | ---------- | ---------------------------- |
-| 유가준  | 20235268   | Game Development, JavaScript |
-| 박강곰  | 20243054   | Main Page Development        |
-| 장희예  | 20235312   | CSS Design and Styling       |
+| Name | Student ID | Responsibility |
+| ---- | ---------- | -------------- |
+| 유가준 | 20235268 | Game development and JavaScript |
+| 박강흠 | 20243054 | CSS design, UI, and presentation |
+| 장희예 | 20235312 | Main page and project structure |
